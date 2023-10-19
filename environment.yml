@@ -1,0 +1,8 @@
+name: meg-results-gen
+channels:
+  - conda-forge
+dependencies:
+  - python =3.11.5
+  - pip
+  - python-pptx
+  
