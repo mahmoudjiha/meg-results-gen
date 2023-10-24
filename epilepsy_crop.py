@@ -4,26 +4,18 @@ TRANSPARENT = (0, 0, 0, 0)
 
 def circular_mask(x,y,diameter,size):
     '''
-    This function generate a mask image.
+    This function generates a mask image.
     x,y indicate the center of the circle
     size = size of the image which will be cropped
     '''
     x1 = x - diameter/2
-    y1 = y - diameter/2
+    y1 = y - diameter/2 + 3 # correction for DataEditor MAP not being a perfect circle
     x2 = x + diameter/2
-    y2 = y + diameter/2
+    y2 = y + diameter/2 - 5 # correction for DataEditor MAP not being a perfect circle
 
     image = Image.new('L', size, color="black")
 
     draw = ImageDraw.Draw(image)
-
-    # draw ellipse actually draw a rectangular region here x1,y1,x2,y2
-    # define region of a circle.
-
-    x1 = x1
-    x2 = x2
-    y1 = y1 + 3 # correction for DataEditor MAP not being a perfect circle
-    y2 = y2 - 5 # correction for DataEditor MAP not being a perfect circle
 
     draw.ellipse((x1, y1, x2, y2), fill = 'white', outline ='white')
 
@@ -51,4 +43,4 @@ def crop_snap(snap, coordinates: tuple, image_type=None):
                 if pixel_value == 0:
                     cropped_pixels[x, y] = TRANSPARENT
 
-    return(cropped_image)
+    return cropped_image

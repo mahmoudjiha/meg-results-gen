@@ -115,7 +115,7 @@ def populate_header(current_slide, slide_type, meg_file):
             text_color = COLORS['WHITE']
         case 'sef':
             title_text = 'Somatosensory Mapping - Index Finger(s)'
-            subtitle_text = 'Response(s) map to the contralateral hemisphere'
+            subtitle_text = 'Response(s) map to the contralateral hemisphere unless otherwise indicated'
             text_color = COLORS['WHITE']
 
     text_frame = configure_textbox(current_slide, POSITIONS['HEADER']['TITLE'], SIZES['TITLE'])

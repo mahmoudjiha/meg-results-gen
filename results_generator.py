@@ -121,18 +121,18 @@ def get_data_files(data_type: str) -> list:
     Returns a list with lists of filenames of the data type isolated by instrument type for a data type.
     """
 
-    Subject_ID_REGEX = r"C\d{4}[A-Z]\."
+    subject_id_pattern = r"C\d{4}[A-Z]\."
 
 
     if data_type == 'sam':
-        Instrument_Type_REGEX = r"[a-zA-Z]{3}\.R\d{1,2}V\d{1,2}\."
+        instrument_pattern = r"[a-zA-Z]{3}\.R\d{1,2}V\d{1,2}\."
     else:
-        Instrument_Type_REGEX = r"[a-zA-Z]{3}\."
+        instrument_pattern = r"[a-zA-Z]{3}\."
 
 
-    DataType_REGEX = data_type + r"\d{1,2}\.png$"
-    FileName_REGEX = Subject_ID_REGEX + Instrument_Type_REGEX + DataType_REGEX
-    pattern = re.compile(FileName_REGEX)
+    datatype_pattern = data_type + r"\d{1,2}\.png$"
+    filename_pattern = subject_id_pattern + instrument_pattern + datatype_pattern
+    pattern = re.compile(filename_pattern)
     directory_filelist = os.listdir()
     raw_files = []
 
