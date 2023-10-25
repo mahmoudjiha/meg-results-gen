@@ -150,7 +150,6 @@ def get_data_files(data_type: str) -> list:
     elif data_type in MRI_ONLY:
         data_files = raw_files
         sorted_files = sort_filenames(data_type, data_files)
-        # event_count = raw_file_count
     else:
         event_count = raw_file_count // 3
         separated_files = separate_by_instrument(raw_files, event_count)

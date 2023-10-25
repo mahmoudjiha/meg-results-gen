@@ -19,7 +19,7 @@ def insert_image(current_slide, placeholder, img):
 def insert_autoshape(current_slide, position, size, shape_class: MSO_SHAPE, fore_color = None, line_color = None):
     shape = current_slide.shapes.add_shape(
         shape_class, Inches(position[0]), Inches(position[1]),
-        Inches(size[0]), Inches(size[1])                                      
+        Inches(size[0]), Inches(size[1])
     )
 
     shape.shadow.inherit = False
@@ -126,16 +126,16 @@ def populate_header(current_slide, slide_type, meg_file):
 
 def populate_mri_images(current_slide, slide_type, image_path):
     if slide_type in MRI_ONLY:
-        for key in PLACEHOLDERS['IMAGES']['NON-EVENT'].keys():
+        for key in PLACEHOLDERS['IMAGES']['NON-EVENT']:
             image = crop_snap(image_path, CROP_COORDINATES['NON-EVENT'][slide_type.upper()][key])
             insert_image(current_slide, PLACEHOLDERS['IMAGES']['NON-EVENT'][key], image)
     else:
-        for key in PLACEHOLDERS['IMAGES']['EVENT']['ANATOMICAL'].keys():
+        for key in PLACEHOLDERS['IMAGES']['EVENT']['ANATOMICAL']:
             image = crop_snap(image_path, CROP_COORDINATES['EVENT'][key])
             insert_image(current_slide, PLACEHOLDERS['IMAGES']['EVENT']['ANATOMICAL'][key], image)
 
 def populate_waveforms(current_slide, images):
-    for key in PLACEHOLDERS['IMAGES']['EVENT']['PHYSIOLOGICAL'].keys():
+    for key in PLACEHOLDERS['IMAGES']['EVENT']['PHYSIOLOGICAL']:
         match key:
             case 'EEG_WAVEFORMS':
                 image_path = images[2]
@@ -147,16 +147,11 @@ def populate_waveforms(current_slide, images):
         insert_image(current_slide, PLACEHOLDERS['IMAGES']['EVENT']['PHYSIOLOGICAL'][key], image)
 
 def populate_labels(current_slide):
-    for key in PLACEHOLDERS['TEXTBOX'].keys():
+    for key in PLACEHOLDERS['TEXTBOX']:
         insert_text(current_slide, *PLACEHOLDERS['TEXTBOX'][key])
 
 def create_slide(presentation, slide_type, images, header, event_types):
     """
-    Initialize slide
-    Insert header from str
-    Insert text
-    Insert images
-    Insert shapes
     """
     if slide_type in MRI_ONLY:
         layout = presentation.slide_layouts[0]
