@@ -121,11 +121,11 @@ POSITIONS = {
     },
 
     'BRACES': {
-        'CENTRAL': (8.51, 1.58),
-        'FRONTAL': (8.51, 2.63),
-        'OCCIPITAL': (8.51, 4.06),
-        'PARIETAL': (8.51, 4.87),
-        'TEMPORAL': (8.51, 5.78),
+        'CENTRAL': (8.1, 1.58),
+        'FRONTAL': (8.1, 2.63),
+        'OCCIPITAL': (8.1, 4.06),
+        'PARIETAL': (8.1, 4.87),
+        'TEMPORAL': (8.1, 5.78),
     },
 
     'HEADER': {
@@ -185,7 +185,7 @@ TYPE_COLORS = {
 
 TYPE_LIST = ('seizure', 'spike', 'poly', 'average',
              'bird', 'slow', 'champ', 'pfa', 'sam',
-             'cor', 'sef', 'motor'
+             'sef', 'motor', 'cor'
 )
 
 LEGEND_TEXT = {
@@ -212,8 +212,8 @@ CROP_COORDINATES = {
         'CORONAL_VIEW': (17, 63, 249, 319),
         'SAGITTAL_VIEW': (280, 63, 512, 319),
         'EEG_WAVEFORMS': (9, 137, 294, 884),
-        'MEG_LEFT_WAVEFORMS': (9, 137, 294, 884),
-        'MEG_RIGHT_WAVEFORMS': (305, 137, 590, 884),
+        'MEG_LEFT_WAVEFORMS': (44, 137, 298, 884),
+        'MEG_RIGHT_WAVEFORMS': (347, 137, 594, 884),
         'SENSOR_MAP': (600, 99, 750, 249)
     },
 

@@ -117,6 +117,10 @@ def populate_header(current_slide, slide_type, meg_file):
             title_text = 'Somatosensory Mapping'
             subtitle_text = ''
             text_color = COLORS['WHITE']
+        case _:
+            title_text = 'Equivalent Current Dipole Modeling'
+            subtitle_text = ''
+            text_color = COLORS['WHITE']
 
     text_frame = configure_textbox(current_slide, POSITIONS['HEADER']['TITLE'], SIZES['TITLE'])
     insert_text(current_slide, text_frame, title_text, *TEXT_PARAMETERS['TITLE'], text_color)
@@ -168,7 +172,7 @@ def create_slide(presentation, slide_type, images, header, event_types):
         insert_braces(current_slide)
         populate_labels(current_slide)
 
-    if slide_type in ('sam', 'sef', 'motor', 'champ'):
+    if slide_type != 'cor':
         populate_header(current_slide, slide_type, images[1])
 
 
