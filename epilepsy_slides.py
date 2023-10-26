@@ -106,16 +106,16 @@ def populate_header(current_slide, slide_type, meg_file):
             subtitle_text = 'Representative Waveforms Example ' + meg_file[-5]
             text_color = COLORS['GREEN']
         case 'champ':
-            title_text = 'Champagne Source Localization'
-            subtitle_text = 'Waveforms are representations of averaged events'
+            title_text = 'Champagne Distributed Source Analysis'
+            subtitle_text = ''
             text_color = COLORS['CYAN']
         case 'motor':
-            title_text = 'SAM Analysis - Motor'
-            subtitle_text = 'Activations are displayed in BLUE'
+            title_text = 'SAM Beamforming Analysis - Motor'
+            subtitle_text = ''
             text_color = COLORS['WHITE']
         case 'sef':
-            title_text = 'Somatosensory Mapping - Index Finger(s)'
-            subtitle_text = 'Response(s) map to the contralateral hemisphere unless otherwise indicated'
+            title_text = 'Somatosensory Mapping'
+            subtitle_text = ''
             text_color = COLORS['WHITE']
 
     text_frame = configure_textbox(current_slide, POSITIONS['HEADER']['TITLE'], SIZES['TITLE'])
@@ -139,7 +139,7 @@ def populate_waveforms(current_slide, images):
         match key:
             case 'EEG_WAVEFORMS':
                 image_path = images[2]
-            case 'MEG_WAVEFORMS' | 'SENSOR_MAP':
+            case 'MEG_LEFT_WAVEFORMS' | 'MEG_RIGHT_WAVEFORMS' | 'SENSOR_MAP':
                 image_path = images[1]
 
         image = crop_snap(image_path, CROP_COORDINATES['EVENT'][key], key)

@@ -1,10 +1,10 @@
 from io import BytesIO
 from pptx import Presentation
-from pptx.enum.shapes import MSO_AUTO_SHAPE_TYPE as MSO_SHAPE
+from pptx.enum.shapes import MSO_SHAPE
 from pptx.enum.text import MSO_AUTO_SIZE
-from pptx.enum.text import PP_PARAGRAPH_ALIGNMENT as PP_ALIGN
-from pptx.enum.text import MSO_VERTICAL_ANCHOR as MSO_ANCHOR
-from pptx.enum.dml import MSO_THEME_COLOR_INDEX as MSO_THEME_COLOR
+from pptx.enum.text import PP_ALIGN
+from pptx.enum.text import MSO_ANCHOR
+from pptx.enum.dml import MSO_THEME_COLOR
 from pptx.dml.color import RGBColor
 from pptx.util import Inches, Pt
 from PIL import Image, ImageDraw
@@ -20,7 +20,8 @@ PLACEHOLDERS = {
 
             'PHYSIOLOGICAL': {
                 'EEG_WAVEFORMS': 16,
-                'MEG_WAVEFORMS': 17,
+                'MEG_LEFT_WAVEFORMS': 17,
+                'MEG_RIGHT_WAVEFORMS': 39,
                 'SENSOR_MAP': 31
             }
         },
@@ -211,7 +212,8 @@ CROP_COORDINATES = {
         'CORONAL_VIEW': (17, 63, 249, 319),
         'SAGITTAL_VIEW': (280, 63, 512, 319),
         'EEG_WAVEFORMS': (9, 137, 294, 884),
-        'MEG_WAVEFORMS': (9, 137, 589, 884),
+        'MEG_LEFT_WAVEFORMS': (9, 137, 294, 884),
+        'MEG_RIGHT_WAVEFORMS': (305, 137, 590, 884),
         'SENSOR_MAP': (600, 99, 750, 249)
     },
 
